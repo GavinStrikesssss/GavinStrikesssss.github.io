@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Not the Official Evon Website</title>
+    <title>Evon SMP</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <p>Hey, this isn't the official website for Evon. You can find the official website <a href="https://evon.cc" target="_blank">here</a>.</p>
+    <div id="container">
+        <h1>Evon SMP</h1>
+        <p>Copy the IP below and join!</p>
+        <input type="text" id="server-ip" value="play.evonmc.cloud" readonly>
+        <button id="copy-button" onclick="copyIP()">Copy IP</button>
+
+        <div id="tabs">
+            <a class="tab" href="rules.html" target="_blank">Rules</a>
+            <a class="tab" href="status.html" target="_blank">Status</a>
+            <a class="tab" href="discord.html" target="_blank">Discord</a>
+        </div>
+    </div>
+
+    <script>
+        function copyIP() {
+            var ipInput = document.getElementById('server-ip');
+            ipInput.select();
+            document.execCommand('copy');
+            alert('IP Copied: ' + ipInput.value);
+        }
+    </script>
 </body>
 </html>
