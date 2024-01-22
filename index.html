@@ -1,37 +1,88 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evon SMP</title>
+    <title>Evon SMP - Minecraft Multiplayer Server</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        #main-content button {
+            background-color: #3498db;
+            color: #ecf0f1;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        #main-content button:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
 <body>
     <div id="container">
-        <h1>Evon SMP</h1>
-        <p>Copy the IP below and join!</p>
-        <input type="text" id="server-ip" value="play.evonmc.cloud" readonly>
-        <button id="copy-button" onclick="copyIP()">Copy IP</button>
+        <header>
+            <div id="logo">
+                <img src="logo.png" alt="Evon SMP Logo">
+                <h1>Evon SMP</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="rules.html">Rules</a></li>
+                    <li><a href="donate.html">Store</a></li>
+                </ul>
+            </nav>
+        </header>
 
-        <div id="tabs">
-            <a class="tab" href="rules.html" target="_blank">Rules</a>
-            <a class="tab" href="status.html" target="_blank">Status</a>
-            <a class="tab" href="discord.html" target="_blank">Discord</a>
-        </div>
+        <section id="main-content">
+            <h2>Welcome to Evon SMP!</h2>
+            <p>Connect to the server using the IP address below and explore the world of Evon SMP!</p>
+            <div id="server-info">
+                <input type="text" id="server-ip" value="play.evonmc.cloud" readonly>
+                <button id="copy-button" onclick="copyIP()">Copy IP</button>
+            </div>
 
-
+            <a href="rules.html">
+                <button>View Rules</button>
+            </a>
+            
+            <button onclick="joinDiscord()">Join Discord</button>
+        </section>
     </div>
 
-    <div id="contact-info">
-        <p>Contact: <a href="mailto:contact@evonmc.cloud">contact@evonmc.cloud</a></p>
-    </div>
+    <section id="contact-info">
+        <p>Contact us at: <a href="mailto:contact@evonmc.cloud">contact@evonmc.cloud</a></p>
+        <p>Evon SMP Is not affiliated with Mojang Studios</p>
+    </section>
 
     <script>
         function copyIP() {
             var ipInput = document.getElementById('server-ip');
             ipInput.select();
             document.execCommand('copy');
+            
+            var checkmark = document.createElement('span');
+            checkmark.innerHTML = '&#10003;';
+            checkmark.style.color = 'green';
+            checkmark.style.marginLeft = '5px';
+            document.getElementById('server-info').appendChild(checkmark);
+
+            setTimeout(function() {
+                checkmark.style.display = 'none';
+            }, 2000);
+
             alert('IP Copied: ' + ipInput.value);
+        }
+
+        function joinDiscord() {
+            window.open('https://discord.gg/rk9QQ92Mu5', '_blank');
         }
     </script>
 </body>
