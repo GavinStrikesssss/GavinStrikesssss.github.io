@@ -1,88 +1,96 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evon SMP - Minecraft Multiplayer Server</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        #main-content button {
-            background-color: #3498db;
-            color: #ecf0f1;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 10px;
-            transition: background-color 0.3s;
-        }
-
-        #main-content button:hover {
-            background-color: #2980b9;
-        }
-    </style>
+    <title>Evon SMP - Minecraft Server</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="container">
-        <header>
-            <div id="logo">
-                <img src="logo.png" alt="Evon SMP Logo">
-                <h1>Evon SMP</h1>
+    <header>
+        <div class="container">
+            <img src="evon-icon.png" alt="Evon SMP Logo"> 
+            <h1>Evon SMP</h1>
+            <p>Welcome to the Evon Minecraft server!</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <a href="#home">Home</a>
+            <a href="rules.html">Rules</a>
+            <a href="#downloads">Downloads</a>
+            <a href="#community">Community</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="container">
+            <h2>Welcome To Evon!</h2>
+            <div class="server-info">
+                <p>Join us now and have fun!</p>
+                <p>Click "Copy IP" below to get the IP!</p>
+                
+                <button class="copy-ip-button" onclick="copyIP()">Copy IP</button>
+                <span id="copy-success">&#10003; Copied!</span>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="rules.html">Rules</a></li>
-                    <li><a href="donate.html">Store</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <section id="main-content">
-            <h2>Welcome to Evon SMP!</h2>
-            <p>Connect to the server using the IP address below and explore the world of Evon SMP!</p>
-            <div id="server-info">
-                <input type="text" id="server-ip" value="play.evonmc.cloud" readonly>
-                <button id="copy-button" onclick="copyIP()">Copy IP</button>
-            </div>
-
-            <a href="rules.html">
-                <button>View Rules</button>
-            </a>
-            
-            <button onclick="joinDiscord()">Join Discord</button>
-        </section>
-    </div>
-
-    <section id="contact-info">
-        <p>Contact us at: <a href="mailto:contact@evonmc.cloud">contact@evonmc.cloud</a></p>
-        <p>Evon SMP Is not affiliated with Mojang Studios</p>
+        </div>
     </section>
+
+    <section id="downloads">
+        <div class="container">
+            <h2>Downloads</h2>
+            <p>We recommend downloading Fabric, which you can do so here:</p>
+            <a class="download-button" href="https://fabricmc.net/">Download Fabric</a>
+          
+        </div>
+    </section>
+
+    <section id="community">
+        <div class="container">
+            <h2>Community</h2>
+            <p>Connect with other players</p>
+            <button class="discord-button" onclick="joinDiscord()">Join Discord</button>
+       
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have issues joining? Email us:</p>
+            <p>Email: contact@evonmc.cloud</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 GavinStrikes Software LLC</p>
+            <p>Looking for the official Evon website? Click <a href="https://evon.cc" target="_blank" style="color: #3498db;">here</a>.</p>
+
+        </div>
+    </footer>
 
     <script>
         function copyIP() {
-            var ipInput = document.getElementById('server-ip');
+            const ipInput = document.createElement('input');
+            ipInput.value = 'play.evonmc.cloud'; 
+            document.body.appendChild(ipInput);
             ipInput.select();
             document.execCommand('copy');
-            
-            var checkmark = document.createElement('span');
-            checkmark.innerHTML = '&#10003;';
-            checkmark.style.color = 'green';
-            checkmark.style.marginLeft = '5px';
-            document.getElementById('server-info').appendChild(checkmark);
+            document.body.removeChild(ipInput);
 
-            setTimeout(function() {
-                checkmark.style.display = 'none';
-            }, 2000);
-
-            alert('IP Copied: ' + ipInput.value);
+            const copySuccess = document.getElementById('copy-success');
+            copySuccess.style.opacity = '1';
+            setTimeout(() => {
+                copySuccess.style.opacity = '0';
+            }, 1500);
         }
 
         function joinDiscord() {
-            window.open('https://discord.gg/rk9QQ92Mu5', '_blank');
+        
+            window.location.href = 'https://discord.gg/VyRqyBAyTQ';
         }
     </script>
 </body>
