@@ -58,12 +58,12 @@ section p {
 .server-info {
     max-width: 600px;
     margin: 0 auto;
-    text-align: center; /* Center the content within the container */
+    text-align: center; 
 }
 
 .copy-ip-button {
     display: block;
-    margin: 20px auto; /* Center the button horizontally with top margin */
+    margin: 20px auto; 
     background-color: #27ae60;
     color: #ecf0f1;
     padding: 15px 30px;
@@ -118,11 +118,11 @@ footer {
     text-align: center;
 }
 
-/* Add this CSS for the Discord join button */
+
 
 .discord-button {
     display: inline-block;
-    background-color: #3498db; /* Blue color similar to the download button */
+    background-color: #3498db; 
     color: #ecf0f1;
     padding: 15px 30px;
     text-decoration: none;
@@ -133,6 +133,6 @@ footer {
 }
 
 .discord-button:hover {
-    background-color: #2980b9; /* Darker blue on hover */
+    background-color: #2980b9; 
     transform: scale(1.05);
 }
